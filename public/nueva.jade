@@ -1,0 +1,198 @@
+doctype html
+html(lang='es')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+		title KooB
+		//-link(rel='stylesheet', href='css/normalize.css')
+		//-link(rel='stylesheet', href='css/bootstrap.css')
+		link(rel='stylesheet', href='css/default.css')
+		link(rel='stylesheet', href='css/estilo.css')
+		//-script(src='js/vendor/jquery.js')
+		//-script(src='js/vendor/underscore.js')
+		//-script(src='js/vendor/backbone.js')
+		//-script(src='js/vendor/socket.io.js')
+		//-script(src='js/vendor/jquery.vibrating.js')
+		script(src='js/all.js')
+		//-script(src='js/init.js')
+		//-script(type='text/javascript', src='js/backbone/views/app.js')
+		//-script(type='text/javascript', src='js/backbone/models/historiaLectura.js')
+		//-script(type='text/javascript', src='js/backbone/views/historiaLectura-view.js')
+		//-script(type='text/javascript', src='js/backbone/models/usrSession.js')
+		//-script(type='text/javascript', src='js/backbone/views/topbar-view.js')
+		//-script(type='text/javascript', src='js/backbone/models/post.js')
+		//-script(type='text/javascript', src='js/backbone/collections/posts.js')
+		//-script(type='text/javascript', src='js/backbone/views/post-view.js')
+		//-script(type='text/javascript', src='js/backbone/models/historia.js')
+		//-script(type='text/javascript', src='js/backbone/collections/historias.js')
+		//-script(type='text/javascript', src='js/backbone/views/historia-view.js')
+		script(type='text/javascript', src='js/backbone/all.backbone.js')
+	body
+		nav#topbar-content.navbar.navbar-default(role='navigation')
+		
+		.div-principal
+			//-.div-menu-dashboard
+				ul
+					li DASHBOARD
+					li Crear nueva historia
+					li Historias en las que has participado
+					li Siguiendo
+					li Seguidores
+					li Ayuda
+			.div-contenido
+				h2 CREAR NUEVA HISTORIA
+				form.formulario#formulario(enctype='multipart/form-data' ,method='post',action='/subirImg')
+					label Subir imagen
+					input#foto.foto(type="file" name='foto')
+					input(type='text' name='username')
+					//input#botonSubir(type="submit")
+				form.form-nueva#form-nueva(action='/nueva', method='post')
+					.div-tipo-historia Tipo de Historia:
+						div
+							label Publica
+							input(type='radio', value='publica', name='tipoHistoria')
+							label  Privada
+							input(type='radio', value='privada', name='tipoHistoria')
+							label  Grupal 
+							input(type='radio', value='grupal', name='tipoHistoria')
+					.div-genero Genero
+						select(name='genero')
+							option Terror
+							option Comedia
+							option Accion
+							option Romance
+							option Fantasia
+					input(type='text', placeholder='Titulo de la historia', name='titulo')
+					input#urlImg(type='hidden' value='' name='urlImg')
+					#formatting-container
+						#textarea-agregar.textarea-agregar.form-control  
+					input.primer-post(type='hidden', value='', name='post')
+					input.id(type='hidden', value='', name='id')
+					input.guardar-publicar(type='submit', value='Guardar y Publicar')
+		footer
+			div
+				p (c) 2014 www.koob.com
+				div
+					span.icon-facebook3
+					span.icon-twitter
+		script#topbar-template(type='text/template')
+			.navbar-header
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='/new')
+					span.icon-logo 
+
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right
+					li
+						form.navbar-form.navbar-left(role='search')
+							.form-group.has-feedback
+								input.form-control.buscar(type='text')
+								span.icon-busqueda.form-control-feedback
+					li
+						a.nueva-historia(href='/nueva')
+							span.icon-pluma
+							| Nueva Historia
+					li
+						a(href='#')
+							img.img-perfil(src='img/avatar.jpg')
+							| <%= nick %>
+					li.dropdown
+						a.dropdown-toggle.configuraciones(href='#', data-toggle='dropdown')
+							span.icon-configuraciones
+							span.visible-sm Configuracion
+							span.icon-arrow-down
+						ul.dropdown-menu(role='menu')
+							//-li
+								a(href='#')
+									span.icon-stats
+									| Dashboard
+							//-li
+								a(href='#')
+									span.icon-editarperfil
+									| Editar Perfil
+							//-li
+								a(href='#')
+									span.icon-filtros
+									| Filtros
+							li
+								a(href='/logout')
+									span.icon-logout
+									| Logout
+							li.divider
+							li
+								a(href='#')
+									span.icon-ayuda
+									| Ayuda
+
+		//-script(src='js/vendor/bootstrap.js')
+		//-script(src='js/vendor/quill.min.js')
+		script(type='text/javascript', src='js/main.js')
+		script(type='text/javascript').
+			window.editor = new Quill('#textarea-agregar', {
+				modules: {
+					'toolbar': {
+						container: '#formatting-container' 
+						},
+					'image-tooltip': true,'link-tooltip': true
+					}
+			});
+			editor.on('text-change', function(delta, source) {
+				$('.primer-post').val( editor.getHTML());
+				console.log($('.id').val());
+			});
+			
+			
+			$(document).ready(function() {
+				
+				$('#form-nueva').on('submit',function(e){
+					var request =  new FormData($('#formulario')[0]);
+					//e.preventDefault();
+					console.log();
+					$.ajax({
+						url : '/subirImg',
+						type: 'POST',
+						//headers: { "Content-Type": "multipart/form-data" },
+						data: request,
+						cache: false,
+						async: false,
+						contentType: false,
+						processData: false,
+						beforeSend: function(){
+
+						},
+						success : function(data){
+							console.log(data);
+							$('input[name=urlImg]').val(data);
+							//$('#form-nueva').submit();
+							//return true;
+						},
+						error: function(){
+
+						}
+					});
+				});	
+			});
+			//- $('#botonSubir').click(function(){
+			//- 	$.ajax({
+			//- 		url : '/subirImg',
+			//- 		type: 'POST',
+			//- 		data: formData,
+			//- 		cache: false,
+			//- 		contentType: false,
+			//- 		processData: false,
+			//- 		beforeSend: function(){
+
+			//- 		},
+			//- 		success : function(data){
+			//- 			$('#urlImg').value(data);	
+			//- 		},
+			//- 		error: function(){
+
+			//- 		}
+			//- 	});
+			//- });
+

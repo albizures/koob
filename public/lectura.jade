@@ -1,0 +1,174 @@
+doctype html
+html(lang='es')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+		title Koob
+		//-link(rel='stylesheet', href='css/normalize.css')
+		//-link(rel='stylesheet', href='css/bootstrap.css')
+		//-link(rel='stylesheet', href='css/slick.css')
+		link(rel='stylesheet', href='css/default.css')
+		link(rel='stylesheet', href='css/estilo.css')
+		//-script(src='js/vendor/jquery.js')
+		//-script(src='js/vendor/underscore.js')
+		//-script(src='js/vendor/backbone.js')
+		//-script(src='js/vendor/socket.io.js')
+		//-script(src='js/vendor/jquery.vibrating.js')
+		script(src='js/all.js')
+		//-script(src='js/init.js')
+		//-script(src='js/backbone/views/app.js')
+		//-script(type='text/javascript', src='js/backbone/models/usrSession.js')
+		//-script(type='text/javascript', src='js/backbone/views/topbar-view.js')
+		//-script(type='text/javascript', src='js/backbone/models/historiaLectura.js')
+		//-script(type='text/javascript', src="js/backbone/views/historiaLectura-view.js")
+		//-script(type='text/javascript', src='js/backbone/models/post.js')
+		//-script(type='text/javascript', src='js/backbone/collections/posts.js')
+		//-script(type='text/javascript', src='js/backbone/views/post-view.js')
+		//-script(type="text/javascript", src="js/backbone/models/historia.js")
+		//-script(type="text/javascript", src="js/backbone/collections/historias.js")
+		//-script(type="text/javascript", src="js/backbone/views/historia-view.js")
+		script(type='text/javascript', src='js/backbone/all.backbone.js')
+	body
+		nav#topbar-content.navbar.navbar-default(role='navigation')
+
+		.div-principal-lectura
+			.recomendaciones
+
+		footer
+			div
+				p (c) 2014 www.koob.com
+				div
+					span.icon-facebook3
+					span.icon-twitter
+		if sucessHistoria
+			.notificacion-sucessHistoria
+				| #{sucessHistoria}
+		script#historia-template(type="text/template")
+			.history-view
+					.container-history-view
+						img(src!="img/<%= img %>")
+						h5 <%= titulo %>
+						p Vistas: <%= visitas %>
+						.descripcion
+							h5 
+								a(href!="/lectura?idhistoria=<%= _id %>")
+									<%= titulo %>
+							hr
+							p  <%= descripcion %>
+		script#post-template(type="text/template")
+			| <%= contenido %>
+		script#historiaLectura-template(type='text/template')
+			.div-historia-informacion1.visible-xs
+				h1.visible-xs <%= titulo %>
+				img(src!="img/<%= img %>")
+				.estadisticas
+					.lecturas
+						| Lecturas
+					.ortografia
+						| Ortografia
+					.ranking
+						| Ranking
+				.datos
+					a #<%= genero %>
+					button.glyphicon.glyphicon-thumbs-up.like
+						p<%= likes %>
+					button.glyphicon.glyphicon-thumbs-down.dislike
+						p<%= dislikes %>
+			.div-historia-posts
+				h1.hidden-xs <%= titulo %>
+				.posts
+					//-p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis provident facilis rerum est enim eligendi debitis inventore, voluptatem quasi architecto fuga dolor, voluptates voluptate, tempore laborum cupiditate aliquam corrupti.
+					//-p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos similique dolorum excepturi dolorem, cum aliquam. Explicabo, nihil. Dolores laborum quo ex, error perferendis facere minus molestiae, illo fugiat consectetur commodi!
+				.paginacion
+					span.icon-prev
+					| 1 de 4
+					span.icon-next
+			aside
+				.div-historia-informacion2.hidden-xs
+					img(src!="img/<%= img %>")
+					.estadisticas
+						.lecturas
+							| Lecturas
+						.ortografia
+							| Ortografia
+						.ranking
+							| Ranking
+					.datos
+						a(href='#') #<%= genero %>
+						div
+							button.glyphicon.glyphicon-thumbs-up.like 
+								p<%= likes %>
+							button.glyphicon.glyphicon-thumbs-down.dislike
+								p<%= dislikes %>
+					
+				.div-agregar
+					form
+						#formatting-container
+							.textarea-agregar#textarea-agregar
+						input(type="submit", value="Guardar y publicar")
+				button.agregar-fragmento Agregar Fragmento
+
+
+		script#topbar-template(type='text/template')
+			.navbar-header
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='/new')
+					span.icon-logo
+
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right
+					li
+						form.navbar-form.navbar-left(role='search')
+							.form-group.has-feedback
+								input.form-control.buscar(type='text')
+								span.icon-busqueda.form-control-feedback
+					li
+						a.nueva-historia(href='/nueva')
+							span.icon-pluma
+							| Nueva Historia
+					li
+						a(href='#')
+							img.img-perfil(src='img/avatar.jpg')
+							| <%= nick %>
+					li.dropdown
+						a.dropdown-toggle.configuraciones(href='#', data-toggle='dropdown')
+							span.icon-configuraciones
+							span.visible-sm Configuracion
+							span.icon-arrow-down
+						ul.dropdown-menu(role='menu')
+							//-li
+								a(href='#')
+									span.icon-stats
+									| Dashboard
+							//-li
+								a(href='#')
+									span.icon-editarperfil
+									| Editar Perfil
+							//-li
+								a(href='#')
+									span.icon-filtros
+									| Filtros
+							li
+								a(href='/logout')
+									span.icon-logout
+									| Logout
+							li.divider
+							li
+								a(href='#')
+									span.icon-ayuda
+									| Ayuda
+
+	//-script(src='js/vendor/bootstrap.js')
+	//-script(src='js/vendor/quill.min.js')
+	//-script(src='js/vendor/slick.js')
+	script(type='text/javascript', src='js/main.js')
+	//-script(type='text/javascript').
+	
+	if historia
+		input(type='hidden',value='#{historia}')#idHistoria
+
+

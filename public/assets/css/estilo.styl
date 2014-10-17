@@ -1,0 +1,1076 @@
+celeste = #19a7ff
+verde  = #5cbd78
+gris =  #979da3
+rojo = #f8555e
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../fonts/montserrat-regular.eot');
+    src: url('../fonts/montserrat-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/montserrat-regular.woff2') format('woff2'),
+         url('../fonts/montserrat-regular.woff') format('woff'),
+         url('../fonts/montserrat-regular.ttf') format('truetype'),
+         url('../fonts/montserrat-regular.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face
+	font-family: 'Lato-Light'
+	src: url('../fonts/Lato-Light.eot')
+	src: url('../fonts/Lato-Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Lato-Light.woff') format('woff'),
+		url('../fonts/Lato-Light.ttf') format('truetype'),
+		url('../fonts/Lato-Light.svg#Lato-Light') format('svg')
+
+@font-face
+	font-family 'icomoon'
+	src url('../fonts/icomoon.eot?-e65skv')
+	src url('../fonts/icomoon.eot?#iefix-e65skv') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-e65skv') format('woff'),
+		url('../fonts/icomoon.ttf?-e65skv') format('truetype'),
+		url('../fonts/icomoon.svg?-e65skv#icomoon') format('svg')
+	font-weight normal
+	font-style normal
+
+[class^="icon-"], [class*=" icon-"]
+	font-family 'icomoon'
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+.icon-logo
+	font-size 45px
+	padding 0 5px
+	&:before
+		content "\e600"
+.icon-arrow-down2
+	font-size 50px
+	&:before
+		content: "\e613"
+
+.icon-prev
+	font-family  "slick"
+	&:before
+		content  "\2190"
+.icon-prev, .icon-next
+	cursor pointer
+	font-size 20px
+	vertical-align middle
+	color celeste
+	margin 0 5px
+
+.icon-next
+	font-family  "slick"
+	&:before
+		content "\2192"
+
+
+.icon-twitter
+	font-size 20px
+	&:before 
+		content: "\e60d"
+.icon-facebook3
+	margin 0 5px
+	font-size 20px
+	&:before 
+		content: "\e60c"
+.icon-busqueda
+	position absolute
+	top 0
+	right 5
+	padding 7px 0 0 0
+	font-size 20px
+	color #19a7ff
+	&:before
+		content "\e60a"
+
+.icon-pluma
+	display inline-block
+	font-size 30px
+	vertical-align middle
+	&:before
+		content "\e606"
+
+.icon-configuraciones
+	display inline-block
+	vertical-align middle
+	font-size 30px
+	&:before
+		content "\e604"
+.icon-arrow-down
+	&:before
+		content "\e60f"
+
+.icon-stats
+	color celeste
+	&:before 
+		content: "\e602"
+
+.icon-filtros
+	color celeste
+	&:before
+		content "\e612"
+
+.icon-logout
+	color celeste
+	&:before
+		content "\e608"
+
+.icon-editarperfil
+	color celeste
+	&:before 
+		content: "\e603"
+
+
+.icon-ayuda
+	color celeste
+	&:before
+		content "\e60b"
+
+nav
+	.navbar-header
+		.navbar-brand
+			padding-bottom -10px
+			padding-top 10px
+	div
+		max-width 900px
+		margin 0 auto
+		div
+			
+			ul
+				// border 1px solid black
+				height 50px
+				li:not(.dropdown)
+					height 50px
+					a
+						//padding-top 50px
+						height 50px
+						span 
+							padding-top 10px
+							height 50px
+						img
+							padding 5px
+							//margin-top 5px
+							height 50px
+							width auto
+							border-radius 10px
+							vertical-align middle
+					p
+						display inline-block
+						margin-top 15px
+					form
+						width 100%
+						div
+							input
+								border 0
+								border-radius 20px
+				.dropdown
+					height auto
+					a
+						height 50px
+						span 
+							padding-top 10px
+							height 50px
+						img
+							padding 5px
+							//margin-top 5px
+							height 50px
+							width auto
+							border-radius 10px
+							vertical-align middle
+					ul 
+						background white
+						height auto
+						font-size 12px
+						margin 0 
+						padding 0
+						li 
+							margin 0 
+							padding 0
+							height 35px
+							a
+								//margin 0 
+								//padding 0 
+								//padding-top 5px
+								color celeste
+								height 35px
+								span 
+									display inline
+								p
+									margin 0
+									padding 0
+								&:hover 
+									color celeste
+							&:hover 
+								color celeste
+					a 
+						span 
+							display inline-block !important
+
+.div-home1
+	overflow hidden
+	margin-top -10px
+	height 600px
+	position relative
+	img
+		margin-top -300px
+		width 100%
+		min-width 1500px
+	.div-inter-home1
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		background rgba(celeste, 0.1);
+		padding-top 90px
+		color white
+		text-align center
+		h1
+			letter-spacing: 4.5px
+			font-family 'montserratregular',Times
+			font-size 70px
+			margin 0
+			padding 0
+		.div-home1-descripcion
+			h4
+				font-family 'Lato-Light', serif !important
+				line-height 1.3
+		.btn-iniciar-sesion
+			background celeste
+		.btn-registrarse
+			background white
+			color gris
+		button
+			margin 15px
+			padding 5px 15px
+			border 0
+			border-radius 5px
+			font-size 20px
+			margin-top 100px
+			margin-bottom 150px
+		p
+			font-size 20px
+			margin-bottom -10px
+			font-family 'Lato-Light',serif
+		a 
+			text-align center
+		.desplazar
+			color white
+			text-decoration none
+			&:hover 
+				color white
+				text-decoration none
+			
+.div-home2
+	overflow hidden
+	height 300px
+	position relative
+	.img-dedos
+		height 100%
+		opacity 0.5
+	.div-inter-home2
+		background rgba(verde, 0.8)
+		position absolute
+		top 0 
+		left 0
+		height 100%
+		width 100%
+		.contenido-div-home2
+			margin 0 auto
+			max-width 940px
+			max-height 300px
+			padding 0 20px
+			div
+				margin-top 50px
+				width 60%
+				display inline-block
+				h2 
+					color white
+					font-family 'montserratregular'
+				p
+					font-family 'Lato-Light'
+					color white
+			img
+				margin 50px 50px 0 0 
+				float right
+				height 200px
+				width auto
+				vertical-align top
+				display inline-block
+
+.div-home3
+	overflow hidden
+	height 300px
+	position relative
+	.img-dedos
+		height 100%
+		opacity 0.5
+		float right
+	.div-inter-home3
+		position absolute
+		top 0
+		right 0
+		background rgba(celeste,0.8)
+		width 100%
+		height 100%
+		.contenido-div-home3
+			text-align right
+			margin 0 auto
+			padding 0 20px
+			max-width 940px
+			max-height 300px
+			div
+				float right
+				margin-top 50px
+				width 50%
+				display inline-block
+				h2
+					color white
+					font-family 'montserratregular'
+				p
+					font-family 'Lato-Light'
+					color white
+			img
+				margin 40px 0 0 40px
+				float left
+				height 200px
+				width auto
+				vertical-align top
+				display inline-block
+
+.div-home4
+	overflow hidden
+	height 300px
+	position relative
+	.img-dedos
+		height 100%
+		opacity 0.5
+	.div-inter-home4
+		position absolute
+		top 0 
+		left 0
+		height 100%
+		width 100%
+		background rgba(rojo, 0.8)
+		.contenido-div-home4
+			margin 0 auto
+			max-width 940px
+			max-height 300px
+			padding 0 20px
+			div
+				margin-top 50px
+				width 60%
+				display inline-block
+				h2
+					color white
+					font-family 'montserratregular'
+				p
+					font-family 'Lato-Light'
+					color white
+			img
+				margin 50px 50px 0 0
+				float right
+				height 200px
+				width auto
+				vertical-align top
+				display inline-block
+
+.div-home5
+	overflow hidden
+	height 150px
+	.div-inter-home5
+		color gris
+		margin 0 auto
+		max-width 800px
+		h2
+			display inline-block
+			letter-spacing 4.5px
+			font-family 'montserratregular'
+			font-size 45px
+			margin 45px 20px 
+			padding 0 25px
+		button
+			vertical-align middle
+			border 1px solid gris
+			border-radius 5px
+			background white
+			margin-left 20px	
+			margin-top -20px
+			padding 5px 15px
+			&:hover
+				color white
+				background gris
+
+footer 
+	//position absolute
+	//bottom 0
+	height 40px
+	//width 100%
+	margin-bottom -1px
+	background celeste
+	color white
+	div
+		max-width 900px
+		padding 10px 10px
+		height 40px
+		margin 0 auto
+		p
+			display inline-block
+		div
+			margin-top -10px
+			float right
+		t
+
+.div-sesiones
+	display none
+	position fixed
+	top 0 
+	left 0
+	width 100%
+	height 100%
+	background rgba(black,0.5)
+	.div-iniciar-sesion
+		display none
+		box-shadow 0px 0px 50px rgba(black, 0.3)
+		position absolute
+		top 50%
+		left 50%
+		height 250px
+		width 400px
+		margin-top -125px
+		margin-left -200px
+		background white
+		border-radius 5px
+		span
+			cursor pointer
+			font-family Tahoma
+			font-size 20px
+			position absolute
+			top 0
+			right 0
+			color rgba(gris, 0.4)
+			margin 25px 65px 0 0
+			line-height normal
+		div
+			width 300px
+			margin auto
+			h2
+				color gris
+			form
+				input
+					margin 20px 10px 10px 0
+					padding 10px 
+					display block
+					width 100%
+				input[type=submit]
+					width 50%
+					margin auto
+					background celeste
+					border-radius 10px
+					margin-top 20px
+					border 0
+					color white
+
+			.notificacion
+				text-align center
+				color white
+				border-radius 5px
+				border 1px solid rojo
+				display none
+				position absolute
+				width 400px
+				margin 0 auto
+				top 260px
+				right 0px
+				padding 5px
+				padding-top 10px
+				z-index 99px
+				background rgba(rojo, 1)
+				box-shadow 0px 0px 50px rgba(black, 0.3)
+				//box-shadow 0px 5px 5px rgba(black,0.5)
+
+			
+	.div-registrar
+		display none
+		box-shadow 0px 0px 50px rgba(black,0.3)
+		position absolute
+		top 50%
+		left 50%
+		height 380px
+		width 400px
+		margin-top -190px
+		margin-left -200px
+		background white
+		border-radius 5px
+		span
+			cursor pointer
+			font-family Tahoma
+			font-size 20px
+			position absolute
+			top 0
+			right 0
+			color rgba(gris, 0.4)
+			margin 25px 65px 0 0
+			line-height normal
+		div
+			width 300px
+			margin auto
+			h2
+				color gris
+			form
+				input
+					margin 20px 10px 10px 0
+					padding 10px
+					display block
+					width 100%
+				input[type=submit]
+					width 50%
+					margin auto
+					background celeste
+					border-radius 10px
+					margin-top 20px
+					border 0
+					color white
+				
+
+
+.div-principal
+	//border 1px solid blue
+	max-width 900px
+	margin 0 auto
+	//display block
+	//height 100%
+	div
+		//border 1px solid red
+	.div-menu-dashboard
+		display inline-block
+		height 100%
+		//margin-bottom -100px
+		background rgba(gris,0.2)
+		ul
+			height 100%
+			li
+				display block
+	.div-contenido
+		display inline-block
+		vertical-align top
+		padding 20px
+		padding-top 0px
+		width 100%
+		color gris
+		h2
+			font-family 'montserratregular'
+			
+		form
+			.div-tipo-historia
+				display inline-block
+				margin 0 auto
+				
+				width 100%
+				div
+					text-align center
+					display inline-block
+					margin 0 auto
+					width 80%
+					label
+						margin 0 10px
+						margin-right 0px
+						font-family 'Lato-Light'
+					input
+						margin 0 10px
+
+			.div-genero
+				margin-top 10px
+				select
+					height 100%
+			input[type=radio]
+				margin-left 10px
+				color celeste
+			input[name=titulo]
+				display block
+				width 100%
+				padding 10px
+				margin 10px 0
+				border 1px solid celeste
+			input[type=submit]
+				text-align center
+				background verde
+				color white
+				border 0
+				border-radius 5px
+				font-size 18px 	
+				padding 5px
+				width 200px
+				margin 5px auto
+				display block
+			div
+				.textarea-agregar
+					width 100%
+					height 350px
+					border 1px solid celeste
+					//padding -20px
+			.guardar-publicar
+				margin-top 10px !important
+
+
+.div-video
+	max-width 940px
+	padding 0 20px
+	margin 0 auto
+	margin-top 20px
+	video
+		//border 1px solid red
+		width 100%
+		max-width 900px
+		height auto
+
+.div-division
+	text-align center
+	width 100%
+	padding 15px
+	background celeste
+	margin-top 30px
+	h2
+		margin 0 
+		color white
+		font-family 'montserratregular'
+.div-primeros-pasos
+	margin 0 auto
+	margin-top 50px
+	max-width 940px
+	padding 0 20px
+	text-align center
+	ol
+		text-align left
+		font-family 'Lato-Light'
+		color gris
+		font-size 18px
+		max-width 80%
+		li
+			margin-bottom 20px
+	h3
+		font-family 'Lato-Light'
+		color rojo
+		margin-bottom 30px
+		
+	a 
+		color white
+		background verde
+		font-family 'Lato-Light'
+		text-align center
+		border 0 
+		font-size 18px
+		padding 10px 70px
+		margin-top 10px
+		border-radius 10px
+
+.div-principal-lectura
+	max-width 940px
+	padding 0 20px
+	margin 50px auto
+	height 100%
+	margin-top 100px
+	
+	aside,.div-historia-posts
+		display inline-block
+		vertical-align top
+		height 100%
+	.div-historia-posts
+		padding 0 20px 0 0
+		width 69%
+		h1
+			margin-top -50px
+			color gris
+			font-size 45px
+			font-family 'montserratregular'
+		.posts
+			text-align justify
+			.post 
+				display inline !important
+				padding 0
+				.line 
+					display inline
+					margin 0
+					padding 0
+					margin-left 5px
+		.paginacion
+			float right
+	aside
+		width 30%
+		.div-historia-informacion1,.div-historia-informacion2
+			vertical-align top
+			img
+				display inline-block
+				max-width 69%
+				border 1px solid black
+				margin -1px 
+			.estadisticas
+				display inline-block
+				vertical-align top
+				width 30%
+				div
+					padding 5px
+					border-radius 0 20px 20px 0
+					background rgba(gris,0.3)
+					margin-bottom 5px
+			.datos
+				display inline-block
+				width 69%
+				margin 20px 0
+				a 
+					background celeste
+					color white
+					padding 10px 20px
+					text-align celeste
+					margin 20px 10px 0 0
+					&:hover
+						text-decoration none
+				div 
+					display inline-block
+				button
+					border 1px solid blue
+					background transparent
+					border 0
+					font-size 20px
+					height 100%
+					//line-height 2
+					p
+						//margin 0 
+						//padding 0
+						//border 1px solid red
+						display inline-block
+						padding-top -10px
+				.like
+					color verde
+					padding 0
+					p
+						margin-left -20px !important
+				.dislike 
+					color red
+		.agregar-fragmento
+			width 100%
+			text-align center
+			border 0
+			background verde
+			padding 13px
+			color white
+			border-radius 5px
+			font-size 15px
+		.div-agregar
+			display none
+			vertical-align top
+			form
+				#formatting-container
+					.textarea-agregar
+						height 300px
+						padding 5px
+						border 1px solid gris
+				input[type=submit]
+					width 100%
+					border 0
+					background verde
+					border-radius 10px
+					color white
+					margin-top 10px
+					padding 10px 0
+					font-size 16px
+
+
+.notificacion-sucessHistoria
+	position fixed
+	display none
+	background verde
+	top 60px
+	right 0px
+	border-radius 5px
+	color white
+	padding 10px
+
+.recomendaciones , .recomendaciones2
+	max-width 900px
+	.history-view
+		//max-width 200px
+		width 200px
+		margin 10px
+		.container-history-view
+			position relative
+			img
+				width 200px
+				//max-width 200px
+				
+			h5
+				color celeste
+			p
+				font-family 'Lato-Light'
+			.descripcion
+				-webkit-transition height 1s
+				display none
+				position absolute
+				top 0
+				width 100%
+				height 0
+				left 0
+				background rgba(black, 0.8)
+				padding 0 10px
+				color #F2F2F2
+				h5
+					color #F2F2F2
+					a
+						color #F2F2F2
+
+				p
+					font-family 'Lato-Light'
+					color #F2F2F2
+				hr 
+					margin 0 auto
+				
+@media (max-width : 846px)
+	.div-home1
+		.div-inter-home1
+			margin-bottom 20px
+			h1
+				letter-spacing 1px
+				font-size 40px
+			.div-home1-descripcion
+				margin 0 20px
+			button
+				margin-top 120px
+				margin-bottom 120px
+				display inline-block
+
+@media (max-width : 840px)
+	.datos
+		//border 1px solid red
+		a + div
+			margin-top 30px
+			margin-right -20%
+			//display block
+
+@media (max-width :767px)
+	nav
+		div
+			div
+				ul
+					height 100%
+					li
+						a
+					.dropdown
+						a
+							span
+								display inline-block !important
+						ul
+							font-size 12px
+							//display none !important
+							background celeste !important
+							li:not(.divider)
+								line-height 2px
+								height 40px
+								a
+									height 40px
+									padding 0px
+									margin 0
+									background celeste
+
+								span 
+									height 40px
+									color white
+
+								&:hover
+									color celeste !important
+									span 
+										color celeste !important
+			.div-ul	
+				display none
+				height 100%
+
+
+	.div-home1
+		.div-inter-home1
+			margin-bottom 20px
+			h1
+				letter-spacing 1px
+				font-size 40px
+			.div-home1-descripcion
+				margin 0 20px
+			button
+				margin-top 120px
+				margin-bottom 120px
+				display inline-block
+
+
+	.div-home2
+		.div-inter-home2
+			.contenido-div-home2
+				div
+					width 100%
+					margin-top 9%
+					h2 
+						color white
+						font-family 'montserratregular'
+					p
+						font-size 18px
+				img
+					display none
+
+	.div-home3
+		.div-inter-home3
+			.contenido-div-home3
+				div
+					margin-top 11%
+					width 100%
+					p
+						font-size 18px
+				img
+					display none
+
+
+	.div-home4
+		.div-inter-home4
+			.contenido-div-home4
+				div
+					margin-top 11%
+					width 100%
+					p
+						font-size 18px
+				img
+					display none
+
+	.div-home5
+		.div-inter-home5
+			text-align center
+			h2
+				letter-spacing normal
+				font-size 30px
+				margin-top 6%
+				margin-bottom 20px
+			button
+				font-size 15px
+				display inline-block
+				text-align center
+				margin 0 30%
+
+	/*.recomendaciones,.recomendaciones2
+		div 
+			//border 1px solid red
+		.history-view
+			//width 200px
+			.container-history-view
+				img
+					//width 200px*/
+	.div-historia-informacion1
+		margin 0 10%
+		max-width 80%
+		img
+			width 100%
+		h1
+			margin-top -50px
+			margin-bottom 10px
+			color gris
+			font-size 35px
+			font-family 'montserratregular'
+		.estadisticas 
+			width 100%
+			div 
+				margin 10px 0
+				background rgba(gris,0.2)
+				border-radius 0 20px 20px 0
+				padding 10px 0
+		.datos
+			width 100%
+			a
+				padding 10px 40px
+				vertical-align text-top
+				margin-top 10px
+				color white
+				background celeste
+				height 100%
+				line-height 0
+
+			button
+				background transparent !important
+				border 0
+				font-size 25px
+				padding-top 10px
+				p
+					border 1px solid red
+					display inline-block !important
+			.like
+				color verde
+			.dislike 
+				color rojo
+
+	.div-principal
+		div
+			color gris
+		.div-contenido
+			.div-tipo-historia
+				div
+					width 100% !important
+	.div-primeros-pasos
+		a
+			font-size 14px
+			margin 0
+			padding 10px 20px
+		ol
+			max-width 100%					
+	
+	.div-historia-posts		
+		width 80% !important
+		margin 10px 10%
+
+	aside
+		display block !important
+		margin 0 10%
+		width 80% !important
+		.div-agregar
+			width 100%
+			margin 0
+			padding 0
+			#formatting-container 
+				width 100%
+				margin 0
+				padding 0 
+				.textarea-agregar
+					width 100%
+					margin 0
+
+@media (max-width : 361px)
+	.recomendaciones , .recomendaciones2
+		.history-view
+			width auto
+			//max-width 100% !important
+			//border 1px solid red
+			.container-history-view
+				width 100%
+				img
+					width 100%
+					
+				/*h5
+				p 
+				.descripcion
+					h5 
+
+					hr
+					p*/
+@media (max-width : 400px)  
+	.div-home1
+		.div-inter-home1
+			button
+				margin-top 20px
+				margin-bottom 120px
+				display inline-block
+@media (max-width : 345px)  
+	.div-home1
+		.div-inter-home1
+			button
+				margin-top 20px
+				margin-bottom 20px
+				display inline-block
+
