@@ -45,7 +45,7 @@ exports.historiaLectura = function(req,res) {
 	
 };
 exports.agregarHistoria = function(req,res) {
-	console.log(req.body);
+	//console.log(req.body);
 	var historia = new Historia({
 		titulo	 		: req.body.titulo,
 		tipoHistoria 	: req.body.tipoHistoria,

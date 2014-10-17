@@ -39,27 +39,32 @@ html(lang='es')
 				p (c) 2014 www.koob.com
 				div
 					span.icon-facebook3
-					span.icon-twitter
+					span.icon-twitter 
 		if sucessHistoria
 			.notificacion-sucessHistoria
 				| #{sucessHistoria}
 		script#historia-template(type="text/template")
 			.history-view
-					.container-history-view
+					.container-history-view 
 						img(src!="img/<%= img %>")
-						h5 <%= titulo %>
+						h5 
+							a.titulo-historia-view(href!="/lectura?idhistoria=<%= _id %>")
+								<%= titulo %>
 						p Vistas: <%= visitas %>
 						.descripcion
 							h5 
 								a(href!="/lectura?idhistoria=<%= _id %>")
 									<%= titulo %>
 							hr
-							p  <%= descripcion %>
+							p  
+								<%= descripcion %> 
+						div.leer-mas
+							a(href!="/lectura?idhistoria=<%= _id %>") Leer...
 		script#post-template(type="text/template")
 			| <%= contenido %>
 		script#historiaLectura-template(type='text/template')
 			.div-historia-informacion1.visible-xs
-				h1.visible-xs <%= titulo %>
+				h1 <%= titulo %>
 				img(src!="img/<%= img %>")
 				.estadisticas
 					.lecturas
@@ -70,10 +75,11 @@ html(lang='es')
 						| Ranking
 				.datos
 					a #<%= genero %>
-					button.glyphicon.glyphicon-thumbs-up.like
-						p<%= likes %>
-					button.glyphicon.glyphicon-thumbs-down.dislike
-						p<%= dislikes %>
+					div
+						button.glyphicon.glyphicon-thumbs-up.like
+							p<%= likes %>
+						button.glyphicon.glyphicon-thumbs-down.dislike
+							p<%= dislikes %>
 			.div-historia-posts
 				h1.hidden-xs <%= titulo %>
 				.posts
@@ -94,7 +100,7 @@ html(lang='es')
 						.ranking
 							| Ranking
 					.datos
-						a(href='#') #<%= genero %>
+						a #<%= genero %>
 						div
 							button.glyphicon.glyphicon-thumbs-up.like 
 								p<%= likes %>

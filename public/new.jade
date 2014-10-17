@@ -58,16 +58,18 @@ html(lang='es')
 					span.icon-twitter
 		script#historia-template(type="text/template")
 			.history-view
-					.container-history-view
+					.container-history-view 
 						img(src!="img/<%= img %>")
-						h5 <%= titulo %>
+						h5 
+							a.titulo-historia-view(href!="/lectura?idhistoria=<%= _id %>") <%= titulo %>
 						p Vistas: <%= visitas %>
 						.descripcion
 							h5 
-								a(href!="/lectura?idhistoria=<%= _id %>")
-									<%= titulo %>
+								a(href!="/lectura?idhistoria=<%= _id %>") <%= titulo %>
 							hr
-							p  <%= descripcion %>
+							<%= descripcion %>
+						.leer-mas
+							a(href!="/lectura?idhistoria=<%= _id %>") Leer...
 		//--script#post-template(type="text/template")
 			| <%= contenido %>
 		//--script#historiaLectura-template(type='text/template')

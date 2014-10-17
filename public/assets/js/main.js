@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	console.log('Se ha cargado en main');
+    var isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase()),
+         isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
 
   $(document).load($(window).bind("resize", checkPosition));
   
@@ -22,7 +24,7 @@ $(document).ready(function(){
 		window.models.usrSession = new Koob.Models.UsrSession();
 		
 		window.models.usrSession.on('change',function(model) {
-			console.log('change usrSession');
+			//console.log('change usrSession');
 			var view = new Koob.Views.Topbar({model:model});
 			$('#topbar-content').prepend(view.$el.show());
 			view.render();
@@ -33,7 +35,7 @@ $(document).ready(function(){
 		window.models.historiaLectura = new Koob.Models.HistoriaLectura();
 
 		window.models.historiaLectura.on('change',function(model) {
-			console.log('change historiaLectura')
+			//console.log('change historiaLectura')
 			var view = new Koob.Views.HistoriaLectura({model:model});
 			window.collections.posts.fetch({'data' : {id : $('#idHistoria').val()}});
 			$('.div-principal-lectura').prepend(view.$el.show());
@@ -52,38 +54,64 @@ $(document).ready(function(){
 			$('.posts').append(view.$el.show());
 			view.render
 		});
-
 	}
 	if(Koob.Collections.Historias) {
 		window.collections.historias = new Koob.Collections.Historias();
 
 		window.collections.historias.on('add',function(model) {
-	        var view = new Koob.Views.Historia({model:model});
+            var view = new Koob.Views.Historia({model:model});
 	        var view2 = new Koob.Views.Historia({model:model});
-			$('.recomendaciones').prepend(view.$el.show());
-	        $('.recomendaciones2').prepend(view2.$el.show());
-			$('.recomendaciones').slickAdd(view.$el.show());
-	        $('.recomendaciones2').slickAdd(view2.$el.show());
 
 	    	view.render();
 			view2.render();
+            $('.recomendaciones').prepend(view.$el.show());
+            $('.recomendaciones2').prepend(view2.$el.show());
 
-	        view.$el.find('.container-history-view').mouseover(function(e) {
-	        	view.$el.find('.container-history-view').find('.descripcion').css('display','block');
-	        	view.$el.find('.container-history-view').find('.descripcion').css('height','100%');
-	        });
-	        view.$el.find('.container-history-view').mouseout(function(e) {
-	        	view.$el.find('.container-history-view').find('.descripcion').css('display','none');
-	        	view.$el.find('.container-history-view').find('.descripcion').css('height','0');
-	      	});
-	    	view2.$el.find('.container-history-view').mouseover(function(e) {
-	         	view2.$el.find('.container-history-view').find('.descripcion').css('display','block');
-	        	view2.$el.find('.container-history-view').find('.descripcion').css('height','100%');
-	      	});
-	      	view2.$el.find('.container-history-view').mouseout(function(e) {
-	        	view2.$el.find('.container-history-view').find('.descripcion').css('display','none');
-	       		view2.$el.find('.container-history-view').find('.descripcion').css('height','0');
-	      	});
+            // view.$el.find('.titulo-historia-view').each(function(i,elem){ 
+            //     var texto = $(elem).text();
+            //     console.log(texto.length); 
+            //     if(texto.length > 13){
+            //         console.log('agregar ...');
+            //         var auxTexto = texto.substr(0,12);
+            //         auxTexto+= '...';
+            //         $(elem).text(auxTexto);
+            //     }
+            // });
+
+
+            if(!isAndroid && !isiDevice){
+                //console.log('no es un dispositivo');
+                view.$el.find('.container-history-view').mouseover(function(e) {
+                    var heightImg = view.$el.find('.container-history-view').find('img').height();
+                   // console.log(heightImg);
+                    var heightLeer = view.$el.find('.container-history-view').height() - view.$el.find('.container-history-view').find('img').height();
+                    view.$el.find('.container-history-view').find('.descripcion').css('height',heightImg+"px");
+                    view.$el.find('.container-history-view').find('.leer-mas').css('height',heightLeer+"px");
+                });
+                view.$el.find('.container-history-view').mouseout(function(e) {
+                    view.$el.find('.container-history-view').find('.descripcion').css('height','0');
+                    view.$el.find('.container-history-view').find('.leer-mas').css('height','0');
+                });
+                view2.$el.find('.container-history-view').mouseover(function(e) {
+                    var heightImg = view.$el.find('.container-history-view').find('img').height();
+                    var heightLeer = view.$el.find('.container-history-view').height() - view.$el.find('.container-history-view').find('img').height()
+                    view2.$el.find('.container-history-view').find('.descripcion , .leer-mas').css('display','block');
+                    view2.$el.find('.container-history-view').find('.descripcion').css('height',heightImg+"px");
+                    view2.$el.find('.container-history-view').find('.leer-mas').css('height',heightLeer+"px");
+                });
+                view2.$el.find('.container-history-view').mouseout(function(e) {
+                    view2.$el.find('.container-history-view').find('.descripcion').css('height','0');
+                    view2.$el.find('.container-history-view').find('.leer-mas').css('height','0');
+                });
+            }else{
+                //alert('es un dispositivo');
+                view.$el.find('.container-history-view').find('.descripcion').css('display','none');
+                view2.$el.find('.container-history-view').find('.leer-mas').css('display','none');
+            }
+	       
+          
+          $('.recomendaciones').slickAdd(view.$el.show());
+          $('.recomendaciones2').slickAdd(view2.$el.show());
 		});
 
 		window.collections.historias.fetch();
@@ -93,29 +121,28 @@ $(document).ready(function(){
 	
     window.socket.on('post message', function(msg){
         $('.posts').empty();
-        console.log(msg);
+       // console.log(msg);
         //window.collections.posts.fetch();
         window.collections.posts.fetch({'data' : {id : $('#idHistoria').val()}});
     });
 
 
     if($('.recomendaciones , .recomendaciones2').slick) init_slick();
+
+    
+   // $('.titulo-historia-view')
 });
-
-
-
-
 
 function init_slick () {
 	console.log('entro');
     $('.recomendaciones , .recomendaciones2').slick({
      dots: false,
-     infinite: true,
+     infinite: false,
      speed: 300,
      slidesToShow: 4,
      touchMove: true,
      slidesToScroll: 1,
-     lazyLoad: 'ondemand',
+     //lazyLoad: 'ondemand',
      responsive: 
      [{
           breakpoint: 3000,
@@ -128,7 +155,7 @@ function init_slick () {
      {
           breakpoint: 2000,
           settings: {
-               slidesToShow:6,
+               slidesToShow:4,
                slidesToScroll: 1,
                dots: false
           }
@@ -207,6 +234,6 @@ function checkPosition() {
     //if (window.matchMedia('(max-width: 767px)').matches) {
         //console.log('df');
     //} else {
-        console.log('fd');
+        //console.log('fd');
     //}
 }

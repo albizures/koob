@@ -44,7 +44,7 @@ html(lang='es')
 				form.formulario#formulario(enctype='multipart/form-data' ,method='post',action='/subirImg')
 					label Subir imagen
 					input#foto.foto(type="file" name='foto')
-					input(type='text' name='username')
+					//input(type='text' name='username')
 					//input#botonSubir(type="submit")
 				form.form-nueva#form-nueva(action='/nueva', method='post')
 					.div-tipo-historia Tipo de Historia:
@@ -151,7 +151,7 @@ html(lang='es')
 				$('#form-nueva').on('submit',function(e){
 					var request =  new FormData($('#formulario')[0]);
 					//e.preventDefault();
-					console.log();
+					//console.log();
 					$.ajax({
 						url : '/subirImg',
 						type: 'POST',
@@ -171,7 +171,7 @@ html(lang='es')
 							//return true;
 						},
 						error: function(){
-
+							
 						}
 					});
 				});	

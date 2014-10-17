@@ -172,9 +172,11 @@ app.post('/subirImg',function(req,res) {
 		file_ext = files.foto.name.split('.').pop(),
 		index = old_path.lastIndexOf('/') + 1,
 		file_name = old_path.substr(index),
-		new_file_name = file_name.substr(34,10),
+		new_file_name = file_name.substr(0,5),
 		new_path = path.join( __dirname, '/public/assets/img',new_file_name + '.' + file_ext);
 		
+
+		console.log("nombre del archivo " + file_name);
 		
 		console.log('Este es la nombre del archivo: ' + new_file_name + '.' + file_ext);
 		console.log('Este es el path: ' + new_path);
